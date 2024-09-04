@@ -415,7 +415,7 @@ class LlamaPi:
     def start(self):
         # Create the main window
         self.root = tk.Tk()
-        self.root.title("PiChat")
+        self.root.title("LlamaPi Robot")
         self.root.geometry("640x400")
 
         # Create a canvas to draw the round button

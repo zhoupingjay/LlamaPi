@@ -1,0 +1,15 @@
+{
+    "host": "0.0.0.0",
+    "port": 8000,
+    "models": [
+        {
+            "model": "./llm/meta-llama-3.1-8b-instruct-q4_k_m.gguf",
+            "model_alias": "gpt-3.5-turbo",
+            "n_gpu_layers": -1,
+            "offload_kqv": true,
+            "n_threads": 4,
+            "n_batch": 1,
+            "n_ctx": 1024 
+        }
+    ]
+}

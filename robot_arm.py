@@ -47,21 +47,54 @@ class RobotArm:
         self.pat()
     
     def greet(self):
+        self.reset()
+        time.sleep(0.02)
         self.turn(self.CH_CLAW, 500, 1500, 4)
-        self.turn(self.CH_CLAW, 1500, 500, 4) 
+        time.sleep(0.02)
+        self.turn(self.CH_CLAW, 1500, 500, 4)
+        time.sleep(0.02) 
         self.turn(self.CH_CLAW, 500, 1500, 4)
-        self.turn(self.CH_CLAW, 1500, 500, 4) 
+        time.sleep(0.02)
+        self.turn(self.CH_CLAW, 1500, 500, 4)
+        time.sleep(0.02)
+        self.reset()
     
     def smile(self):
+        self.reset()
         # self.turn(self.CH_WRIST, 500, 2500, 5)
         self.turn(self.CH_WRIST, 500, 2000, 4)
+        time.sleep(0.02)
         self.turn(self.CH_WRIST, 2000, 500, 4)
+        time.sleep(0.02)
+        self.reset()
     
     def pat(self):
+        self.reset()
         self.turn(self.CH_JOINT1, 700, 1000)
+        time.sleep(0.02)
         self.turn(self.CH_JOINT1, 1000, 700)
+        time.sleep(0.02)
         self.turn(self.CH_JOINT1, 700, 1000)
+        time.sleep(0.02)
         self.turn(self.CH_JOINT1, 1000, 700)
+        time.sleep(0.02)
+        self.reset()
+    
+    def retrieve(self):
+        self.reset()
+        self.turn(self.CH_JOINT2, 1200, 300)
+        time.sleep(0.02)
+        # JOINT1 is already in place after reset
+        self.turn(self.CH_CLAW, 500, 1400)
+        time.sleep(0.02)
+        self.turn(self.CH_JOINT2, 300, 1200)
+        time.sleep(0.02)
+        self.turn(self.CH_BASE, 280, 1000)
+        time.sleep(0.5)
+        self.turn(self.CH_CLAW, 1400, 500)
+        time.sleep(0.5)
+        self.turn(self.CH_BASE, 1000, 280)
+        time.sleep(0.02)
 
 if __name__ == "__main__":
     robot_arm = RobotArm()

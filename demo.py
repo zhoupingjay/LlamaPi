@@ -239,6 +239,9 @@ class LlamaPi:
             elif "pat" in cmd:
                 logging.info("ROBOT: patting")
                 self.robot_arm.pat()
+            elif "retrieve" in cmd:
+                logging.info("ROBOT: retrieving")
+                self.robot_arm.retrieve()
             else:
                 logging.info("ROBOT: idle")
 

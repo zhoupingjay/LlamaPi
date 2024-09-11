@@ -155,8 +155,8 @@ class LlamaPi:
         self.text_box.insert(tk.END, txt)
         self.text_box.see(tk.END)
         self.text_box.config(state=tk.DISABLED)
-        # self.text_box.update_idletasks()
-        self.text_box.update()
+        self.text_box.update_idletasks()
+        # self.text_box.update()
         self.canvas.update_idletasks()
     
     def save_audio(self):
@@ -293,7 +293,7 @@ class LlamaPi:
         # Create the main window
         self.root = tk.Tk()
         self.root.title("Coze Robot")
-        self.root.geometry("640x400")
+        self.root.geometry("800x480")
 
         # Create a canvas to draw the round button
         self.canvas = tk.Canvas(self.root, width=150, height=150, bg='white', highlightthickness=0)
@@ -306,7 +306,7 @@ class LlamaPi:
         button_text = self.canvas.create_text(75, 75, text="Hold to Talk", fill="white", font=('Helvetica', 14, 'bold'))
         
         # Create a read-only scrolled text box
-        self.text_box = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, width=50, height=8, font=("Helvetica", 16))
+        self.text_box = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, width=56, height=10, font=("Helvetica", 16))
         self.text_box.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
         self.text_box.config(state=tk.DISABLED)
 

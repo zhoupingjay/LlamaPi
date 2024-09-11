@@ -95,6 +95,7 @@ class RobotArm:
         time.sleep(0.5)
         self.turn(self.CH_BASE, 1000, 280)
         time.sleep(0.02)
+        self.reset()
 
 if __name__ == "__main__":
     robot_arm = RobotArm()

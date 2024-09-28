@@ -1,4 +1,4 @@
-# LlamaPi Robot - Raspberry Pi Voice Chatbot backed by Llama-3.1 8B, with Robot Arm gestures
+# LlamaPi Robot - Voice Chatbot with LLM and Robot Arm
 
 ## Intro
 

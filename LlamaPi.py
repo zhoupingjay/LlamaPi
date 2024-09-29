@@ -18,6 +18,7 @@ import subprocess
 import opencc
 from openai import OpenAI
 import time
+from PIL import Image, ImageTk
 
 logging.basicConfig(
     format='%(asctime)s [%(levelname)s] %(filename)s:%(funcName)s: %(message)s',
@@ -438,11 +439,26 @@ Format your output in two parts:
         # Create the main window
         self.root = tk.Tk()
         self.root.title("LlamaPi Robot")
-        self.root.geometry("640x400")
+        self.root.geometry("800x500")
+
+        # Load the logo image from file
+        background_image = Image.open('LlamaPi_logo.jpg')
+        background_image.thumbnail((400, 300))  # Resize the image to fit in window
+
+        # Convert the image to PhotoImage format (required for tkinter)
+        background_image_tk = ImageTk.PhotoImage(background_image)
+
+        # Create a Label widget with the image as background
+        label = tk.Label(self.root, image=background_image_tk)
+        # Place at top-left corner and full-size
+        label.place(relx=0.5, rely=0.3, relwidth=0.5, relheight=0.5, anchor=tk.CENTER)
+
+        self.root.geometry("+0+0")   # Set window position to top-left corner
 
         # Create a canvas to draw the round button
         self.canvas = tk.Canvas(self.root, width=150, height=150, bg='white', highlightthickness=0)
-        self.canvas.pack(pady=20)
+        # self.canvas.pack(pady=20)
+        self.canvas.place(relx=0.1, rely=0.6, anchor=tk.NW)
 
         # Draw the round button (a circle)
         self.push_button = self.canvas.create_oval(10, 10, 140, 140, fill='blue', outline='white')
@@ -451,8 +467,8 @@ Format your output in two parts:
         button_text = self.canvas.create_text(75, 75, text="Hold to Talk", fill="white", font=('Helvetica', 14, 'bold'))
         
         # Create a read-only scrolled text box
-        self.text_box = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, width=50, height=8, font=("Helvetica", 16))
-        self.text_box.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
+        self.text_box = scrolledtext.ScrolledText(self.root, wrap=tk.WORD, width=48, height=9, font=("Helvetica", 12))
+        self.text_box.place(relx=0.3, rely=0.6, anchor=tk.NW)
         self.text_box.config(state=tk.DISABLED)
 
         if running_on_rpi:

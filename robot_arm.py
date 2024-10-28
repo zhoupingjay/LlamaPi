@@ -45,6 +45,8 @@ class RobotArm:
         self.smile()
         time.sleep(1)
         self.pat()
+        time.sleep(1)
+        self.retrieve()
     
     def greet(self):
         self.reset()

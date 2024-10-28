@@ -133,9 +133,9 @@ To be added
 
 ## Usage
 
-In your virtual environment, run the `LlamaPi.py` script:
+In your virtual environment, run the `LlamaPi_local.py` script:
 ```
-python LlamaPi.py
+python LlamaPi_local.py
 ```
 
 You'll see a window with big blue button and a text box showing the conversation.
